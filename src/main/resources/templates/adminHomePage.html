@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html vlang="en-US" ng-app="myApp">
+    <head>
+        <title>Administrator</title>
+        <script src="./js/angular.js"></script>
+        <script type="text/javascript" src="./js/angular-route.min.js"></script>
+        <script src="./js/pnp.js"></script>
+        <link rel="stylesheet" type="text/css" href="./css/mycss.css" />
+        <link rel="stylesheet" type="text/css" href="./css/menus.css" />
+        <link rel="stylesheet" type="text/css" href="./css/table.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>       
+    </head>
+
+    <body ng-controller="ProductController">
+        
+      <a href="/"> <img src="https://kormorant.co.za/wp-content/uploads/sites/60/2016/08/pnp-logo-inspired-by-you.jpg"  width="200" height="70" alt="Home " /> </a>
+       <ul style="background-color: #CD5C5C">
+              <li><a href="#home">Welcome: {{user.name}} {{user.surname}}</a></li>
+                <li><a href="./addCategory.html">Add Category</a></li>
+               <li><a href="./addProduct.html">Add Product</a></li>
+               <li><a href="./updateProduct.html">Update Product</a></li>
+               <li><a href="./registerAdmin.html">Add Admin</a></li>
+               <li><a href="./registerDriver.html">Add Driver</a></li>
+               <li><a href="./registerSupplier.html">Add Supplier</a></li>
+               <li><a href="./viewOrders.html">View Orders</a></li>
+             
+               <li><a href="./login.html">Log Out</a></li>
+            </ul>
+  <img src="http://tespl.org/oes/images/admin_login.gif" style="width:150;height:50;" />
+  <br>
+          <!--Search Box-->  
+        <input type="text" ng-model="searchText.name" onkeyup="" placeholder="Search For Products.." style="width:20%;  padding: 12px 20px;  margin: 8px 0;box-sizing: border-box;}"/>
+              <table id="tbl">
+               <tr>
+                  <th>Product Name</th>
+                   <th>Product Category</th>
+                   <th>Product Price</th>
+                   <th>Product Image</th>
+               </tr>
+                <!--displays items on database and search using filter in the database-->
+               <tr ng-repeat="product in products | filter:searchText" >
+                   <td>{{product.name}}</td>
+                   <td>{{product.category}}</td>
+                   <td>R:{{product.price}}</td>
+                   <td><span><img ng-src="{{product.image}}" width="200" height="200" alt=""/></span></td>
+                   <td>
+                       <input type="button" id="delete" value="Remove"  class="delete" ng-click="deleteProduct(product.productID)"/>
+                   </td>
+               </tr>
+           </table>
+
+    </body>
+</html>

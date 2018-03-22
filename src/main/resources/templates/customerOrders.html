@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head>
+        <title>Customer-Orders</title>
+        <script src="./js/angular.js"></script>
+        <script type="text/javascript" src="./js/angular-route.min.js"></script>
+	<script src="./js/pnp.js"></script>
+        <link rel="stylesheet" type="text/css" href="./css/mycss.css" />
+        <link rel="stylesheet" type="text/css" href="./css/menus.css" />
+        <link rel="stylesheet" type="text/css" href="./css/table.css" />
+
+    </head>
+
+    <body ng-controller="OrderController">
+        
+<a href="/"> <img src="https://kormorant.co.za/wp-content/uploads/sites/60/2016/08/pnp-logo-inspired-by-you.jpg"  width="200" height="70" alt="Home " /> </a>
+        <ul style="background-color: #CD5C5C"> 
+               <li><a href="./customerHomePage.html">Customer Home</a></li>
+               <li><a href="./login.html">Log Out</a></li>
+        </ul>
+  <img src="http://gifimage.net/wp-content/uploads/2017/09/animated-loading-gif-2.gif" style="width:150;height:50; " />
+            
+            <input type="text" id="myInput" ng-model="orderNo" placeholder="Enter Order No..." style="width:20%;  padding: 12px 20px;  margin: 8px 0;box-sizing: border-box;}"/>
+            <input type="button" id="checkOrder" value="Check Order"  class="search" ng-click="trackOrder(orderNo)"/>
+                       
+          <table id="tbl">
+               <tr>
+                  <th>Order Number</th>
+                  <th>Order Image</th>
+                  <th> Order Description</th>
+                  <th>Order Status</th>
+                  <th>Order Date</th>
+               </tr>
+
+               <tr ng-repeat="ord in ordersIn">
+                   <td>{{ord.orderno}}</td>
+                   <td><span><img ng-src="{{ord.image}}" width="250" height="250" alt=""/></span></td>
+                   <td>{{ord.name}}</td>
+                   <td>{{ord.orderstatus}}</td>
+                   <td>{{ord.orderdate}}</td>
+                   
+               </tr> 
+           </table>
+   </body>
+</html>
+
+    
+

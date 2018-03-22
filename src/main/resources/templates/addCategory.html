@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-US" ng-app="myApp">
+<head>
+    <title>Add-Category</title>
+    <script src="./js/angular.js"></script>
+    <script type="text/javascript" src="./js/angular-route.min.js"></script>
+    <script src="./js/pnp.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/mycss.css" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <link rel="stylesheet" type="text/css" href="./css/menus.css" />
+</head>
+
+<body  ng-controller="CategoryController">
+
+<a href="/"> <img src="https://kormorant.co.za/wp-content/uploads/sites/60/2016/08/pnp-logo-inspired-by-you.jpg"  width="200" height="70" alt="Home " /> </a>
+<div class="container" >
+  <ul style="background-color: #CD5C5C">
+
+    <li><a href="./adminHomePage.html">Admin Home</a></li>
+     <li><a href="./login.html">Log Out</a></li>
+</ul>
+
+    <div id="container_imp" style="float: left">
+        <a class="hiddenanchor" id="toregister"></a>
+        <div id="wrapper">
+        <form name="addCat"> 
+            <img src="http://www.inofficelab.com/v/vspfiles/images/animated-icons//shopping-cart/animat-shopping-cart-color.gif" style="width:150;height:50; " />
+
+                <p> 
+                    <label for="cName" class="pName" >Category Name:</label>
+                    <input id="cName" ng-model="name" name="cName" required="required" type="text" />
+                </p>
+
+                <p class="signin button"> 
+                    <input type="submit" ng-click="saveCategory()" value="Save Category"/> 
+                </p>
+
+                <p class="signin button"> 
+                    <input type="submit" ng-click="removeCategory()" value="Remove Category"/> 
+                </p>
+
+</form>
+</div>  
+</div>
+</div>
+</body>
+</html>

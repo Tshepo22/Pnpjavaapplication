@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head>
+        <title>View-Orders</title>
+        <script src="./js/angular.js"></script>
+        <script type="text/javascript" src="./js/angular-route.min.js"></script>
+	<script src="./js/pnp.js"></script>
+        <link rel="stylesheet" type="text/css" href="./css/mycss.css" />
+        <link rel="stylesheet" type="text/css" href="./css/menus.css" />
+         <link rel="stylesheet" type="text/css" href="./css/table.css" /> 
+     
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>           
+
+        
+      
+
+    </head> 
+    <body ng-controller="OrderController"> 
+       <a href="/"> <img src="https://kormorant.co.za/wp-content/uploads/sites/60/2016/08/pnp-logo-inspired-by-you.jpg"  width="200" height="70" alt="Home " /> </a> 
+        
+           <div>
+            <ul style="background-color: #CD5C5C;">
+                <li><a href="#home">Welcome:{{user.name}} {{user.surname}}</a></li>
+                <li><a href="./login.html">Log Out</a></li>
+               
+            </ul>
+               <h1>Driver Home Page</h1>
+        <img src="https://im-01.gifer.com/JOP.gif" style="width:100;height:10; " />   
+    <!--Search box-->
+    <input type="text" id="myInput" onkeyup="" placeholder="Search For Orders.." style="width:20%;  padding: 12px 20px;  margin: 8px 0;box-sizing: border-box;}"/>
+       
+        
+         <table id="tbl">
+            <tr><th>Order Number</th>
+                <th>Order Image</th>
+                <th> Order Description</th>
+                <th>Order Status</th>
+                <th>Order Amount</th>
+               <th>Order Delivery Date</th>
+              
+                 <td>Change Order Status</td>
+
+            </tr>
+
+            <tr ng-repeat="order in orders "  >
+                <td>{{order.orderno}}</td>
+                <td><span><img ng-src="{{order.image}}" width="100" height="50" alt=""/></span></td>
+                <td>{{order.name}}</td>
+                <td> {{order.orderstatus}}</td>
+                <td>R {{order.orderamount}}</td>
+               
+                <td>{{order.delivarydate}}</td>
+                <td >      
+                <p> 
+                <label for="pCat" class="pCat"  > Update Order Status:</label>
+                <select name="pCat" id="pCat" ng-model="status">
+                <!--option ng-repeat="orderstate in orderStatus" value="{{orderstate.name}}">{{orderstate.name}} </option-->
+                <option>On the way</option>
+                <option>Pending</option>
+                <option>Delivered</option>
+                <option>No Stock</option>
+                          
+                        </select>
+                    </p>  
+                </td>
+                <td>
+                    <input type="button" id="update" value="Update Order Status"  class="update" ng-click="updateOrderStatus(order.orderID, status)"/>
+                 </td>
+            </tr>
+        </table>
+        </div>
+
+    </body>
+</html>
+
+
+

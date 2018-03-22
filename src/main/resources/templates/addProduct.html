@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-US" ng-app="myApp">
+    <head>
+        <title>Add-Product</title>
+        <script src="./js/angular.js"></script>
+        <script type="text/javascript" src="./js/angular-route.min.js"></script>
+	<script src="./js/pnp.js"></script>
+        <link rel="stylesheet" type="text/css" href="./css/mycss.css" />
+        <link rel="stylesheet" type="text/css" href="./css/style.css" />
+        <link rel="stylesheet" type="text/css" href="./css/menus.css" />
+    </head>
+    
+<body  ng-controller="AddProductController">
+<a href="/"> <img src="https://kormorant.co.za/wp-content/uploads/sites/60/2016/08/pnp-logo-inspired-by-you.jpg"  width="200" height="70" alt="Home " /> </a>        
+    
+           
+<div class="container" >
+    <ul style="background-color: #CD5C5C">
+        <li><a href="#home">{{users.fname}} {{users.lname}}</a></li>
+        <li><a href="./adminHomePage.html">Admin Home</a></li>
+         <li><a href="./login.html">Log Out</a></li>
+    </ul>
+
+    <div id="container_imp" style="float: left" >
+        <a class="hiddenanchor" id="toregister"></a>
+        <div id="wrapper">
+<form name="addproduct"> 
+    <img src="https://media.giphy.com/media/10pPSOEe55e8Sc/giphy.gif" style="width:150;height:50; " />
+          <p> 
+                <label for="pName" class="pName" >Product Name:</label>
+                <input id="pName" ng-model="name" name="pName" required="required" type="text" />
+            </p>
+
+           <p> 
+                <label for="pCat" class="pCat"  > Product Category:</label>
+                <select name="pCat" id="pCat" ng-model="category">
+                    <option ng-repeat="cat in categories" value="{{cat.name}}">{{cat.name}} </option>
+                </select>
+           </p>    
+
+            <p> 
+                <label for="productPrice" class="yourPrice" >Product Price: </label>
+                <input id="productPrice" ng-model="price" name="productPrice" required="required" type="text" />
+            </p>
+
+             <p> 
+                <label for="productImage" class="productImage" >Product Image: </label>
+                <input id="productImage" ng-model="image"  required="required" type="file" accept="image/png/jpeg" />
+            </p>
+
+            <p class="signin button"> 
+                <input type="submit" ng-click="create()" value="Save Product"/> 
+            </p>
+             </form>
+        </div>  
+    </div>
+</div>
+
+</body>
+</html>

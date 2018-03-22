@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html vlang="en-US" ng-app="myApp" >
+    <head>
+        <title> Login </title>
+        <script src="./js/angular.js"></script>
+        <script type="text/javascript" src="./js/angular-route.min.js"></script>
+	<script src="./js/pnp.js"></script>
+        <link rel="stylesheet" type="text/css" href="./css/mycss.css" />
+        <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    </head>
+
+    <body ng-controller="LoginController">
+      <a href="/"> <img src="https://kormorant.co.za/wp-content/uploads/sites/60/2016/08/pnp-logo-inspired-by-you.jpg"  width="200" height="70" alt="Home " /> </a>  
+      
+          
+        <div class="container">
+            <div id="container_imp" >
+                <a class="hiddenanchor" id="toregister"></a>
+                <div id="wrapper">
+                    <form class="login"  method="post" autocomplete="on"> 
+                      
+                        <h1 style="color: #000000;">Already have an account?</h1> 
+                          <p>Log in As Admin/customer/supplier/driver</p>
+                            <p> 
+                                
+                 <label for="username" class="uname" data-icon="u" > Your email or username: </label>
+                <input id="username" name="username" ng-model="username" required="required" type="text" placeholder="myusername or mymail@mail.com"/>
+               </p>
+               <p> 
+                <label for="password" class="passWrd" data-icon="p" > Enter Your Password: </label>
+              <input id="password" name="password" ng-model="password" required="required" type="password" placeholder="Enter password"/>
+               </p>
+               <p class="keeplogin"> 
+                <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
+                <label for="loginkeeping">Keep me logged in</label>
+               </p>
+                                
+                                <p class="login button"> 
+                                    <input type="submit" ng-click="login()" value="Login"/> 
+                                </p>
+                                                   
+                                  <p style="color: #CD5C5C;">  					
+                                    or:
+                                    <a href="register.html" class="register" style="color: #000000;">register!</a>
+				</p>
+                    </form> 
+                </div>
+            </div>   
+       
+        </div>
+    </body>
+</html>
+

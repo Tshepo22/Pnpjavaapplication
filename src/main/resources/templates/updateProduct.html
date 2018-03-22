@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-US" ng-app="myApp">
+    <head>
+        <title>Update-Product</title>
+        <script src="./js/angular.js"></script>
+        <script type="text/javascript" src="./js/angular-route.min.js"></script>
+	<script src="./js/pnp.js"></script>
+        <link rel="stylesheet" type="text/css" href="./css/mycss.css" />
+        <link rel="stylesheet" type="text/css" href="./css/style.css" />
+        <link rel="stylesheet" type="text/css" href="./css/menus.css" />
+     
+    </head>
+    
+        <body  ng-controller="ProductController">
+            
+    <a href="/"> <img src="https://kormorant.co.za/wp-content/uploads/sites/60/2016/08/pnp-logo-inspired-by-you.jpg"  width="200" height="70" alt="Home " /> </a>
+            <div class="container" >
+               <ul style="background-color: #CD5C5C">
+                    
+                    <li><a href="./adminHomePage.html">Admin Home</a></li>
+                   
+                    <li><a href="./login.html">Log Out</a></li>
+                </ul>
+                
+                <div id="container_imp" style="float: left">
+                    <a class="hiddenanchor" id="toregister"></a>
+                    <div id="wrapper">
+                    <form name="updateProduct"> 
+                       <img src="https://media.giphy.com/media/10pPSOEe55e8Sc/giphy.gif" style="width:150;height:50; " />
+                            
+                            <p> 
+                               <label for="pCat" class="pCat"> Product Name:</label>
+                               <select name="pCat" id="pCat" ng-model="productId" ng-change="findProductById(productId)" >
+                                   <option ng-repeat="product in products" value="{{product.productID}}">{{product.name}}</option>
+                                </select>
+                            </p>  
+                           
+                            <p> 
+                                <label for="pName" class="pName" >Product Name:</label>
+                                <input id="pName" ng-model="product.name" name="pName" required="true" type="text"/>
+                            </p>
+                              
+                            <p> 
+                                <label for="pCat" class="pCat"  > Product Category:</label>
+                                <input id="pCat" ng-model="product.category" name="pCat" required="true" type="text" /> 
+                            </p>
+                                
+                            <p> 
+                                <label for="productPrice" class="yourPrice" >Product Price: </label>
+                                <input id="productPrice" ng-model="product.price" name="productPrice" required="true" type="text" />
+                            </p>
+     
+                            <p class="signin button"> 
+                                <input type="button" id="update" value="Update Product"  class="update" ng-click="editProduct(product.productID)"/> 
+                           </p>
+   
+                     </form>
+               </div>  
+          </div>
+        </div>
+    </body>
+</html>
