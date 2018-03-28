@@ -39,17 +39,5 @@ public class UsersService {
     {
         return usersRepository.login(email);
     }  
-    public Users findUserByEmail(String email)
-    {
-        return usersRepository.forgotPassword(email);
-    }
-    
-    //Updates password with BCrpterEncoder
-    public int updatePassword(String password, String email)
-    {  
-        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(); 
-        String hashedPassword = passwordEncoder.encode(password);
-        System.out.println("password: " + hashedPassword);
-        return usersRepository.updatePassword(hashedPassword, email);
-    }  
-} // end of code
+
+}

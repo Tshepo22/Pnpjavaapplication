@@ -74,34 +74,4 @@ public class UsersController {
         }
     }
     
-    //Find user using email
-    @RequestMapping(value="/forgotPassword/{username}", method = RequestMethod.GET)
-    @ResponseBody
-    public Users userFogotPassword(@PathVariable String username)
-    { 
-        Users user = usersService.findUserByEmail(username);
-        if(user != null)
-        {
-            return user;
-        }
-        else
-        {
-            throw new DataNotFoundException("User email doesn't exist...");
-        }
-    }
-    
-    //Update Password based on email
-    @RequestMapping(value="/newPassword/{password}/{email}", method = RequestMethod.PUT)
-    @ResponseBody
-    public int newPassword(@PathVariable String password,@PathVariable String email)
-    { 
-        int update = usersService.updatePassword(password, email);
-        if(update != 0)
-        {
-            return update;
-        }
-        else{
-            throw new DataNotFoundException("User password couldn't not be updated...");
-        }
-    }
 } // end of code
